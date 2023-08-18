@@ -23,7 +23,7 @@ jobs:
     - name: Publish to Github Packages Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: my_github_username/my_repository_name/my_image_name
+        name: arbhutale/personal-UI/react-ui
         registry: docker.pkg.github.com
         username: ${{ secrets.GIT_USERNAME }}
         password: ${{ secrets.GIT_TOKEN }}
@@ -43,5 +43,5 @@ jobs:
         script: |
           docker stop $(docker ps -a -q)
           docker login docker.pkg.github.com -u $GIT_USERNAME -p $GIT_TOKEN
-          docker pull docker.pkg.github.com/my_github_username/my_repository_name/my_image_name:latest
-          docker run -dit -p 80:80 docker.pkg.github.com/my_github_username/my_repository_name/my_image_name:latest
+          docker pull docker.pkg.github.com/arbhutale/personal-UI/react-ui:latest
+          docker run -dit -p 80:80 docker.pkg.github.com/arbhutale/personal-UI/react-ui:latest
