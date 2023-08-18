@@ -42,6 +42,6 @@ jobs:
         envs: GIT_USERNAME, GIT_TOKEN
         script: |
           docker stop $(docker ps -a -q)
-          docker login docker.pkg.github.com -u $GIT_USERNAME -p $GIT_TOKEN
+          docker login -u arbhutale -p ${{ secrets.GIT_USERNAME }} docker.pkg.github.com
           docker pull docker.pkg.github.com/arbhutale/personal-UI/react-ui:latest
           docker run -dit -p 80:80 docker.pkg.github.com/arbhutale/personal-UI/react-ui:latest
