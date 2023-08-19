@@ -13,7 +13,10 @@ function Nav() {
     const logout = () => dispatch(authActions.logout());
 
     // only show nav when logged in
-    if (!auth) { logout; return null; }
+    if (!auth) { 
+        logout(); 
+        return null; 
+    }
 
     return (
         // <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
