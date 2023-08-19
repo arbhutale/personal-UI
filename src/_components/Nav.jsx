@@ -7,16 +7,12 @@ export { Nav };
 
 function Nav() {
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(user.id)
     const auth = useSelector(x => x.auth.value);
     const dispatch = useDispatch();
     const logout = () => dispatch(authActions.logout());
 
     // only show nav when logged in
-    if (!auth) { 
-        logout(); 
-        return null; 
-    }
+    if (!auth) return null
 
     return (
         // <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
