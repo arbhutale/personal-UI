@@ -46,14 +46,14 @@ function createExtraActions() {
     function getAll() {
         return createAsyncThunk(
             `${name}/getAll`,
-            async () => await fetchWrapper.get(`${baseUrl}/user/`)
+            async () => await fetchWrapper.get(`${baseUrl}/users/`)
         );
     }
 
     function getById() {
         return createAsyncThunk(
             `${name}/getById`,
-            async (id) => await fetchWrapper.get(`${baseUrl}/${id}`)
+            async () => await fetchWrapper.get(`${baseUrl}/user/`)
         );
     }
 
@@ -126,7 +126,6 @@ function createExtraReducers() {
                     state.item = { error: action.error };
                 });
         }
-
         function _delete() {
             var { pending, fulfilled, rejected } = extraActions.delete;
             builder

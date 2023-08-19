@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { alertActions } from '../_store';
+import { alertActions, userActions } from '../_store';
 import { history, fetchWrapper } from '../_helpers';
 
 // create slice
@@ -59,7 +59,7 @@ function createExtraActions() {
 
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('auth', JSON.stringify(user));
-
+                    dispatch(userActions.getById());
                     // get return url from location state or default to home page
                     const { from } = history.location.state || { from: { pathname: '/' } };
                     history.navigate(from);
