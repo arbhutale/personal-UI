@@ -17,10 +17,10 @@ function Nav() {
 
     // only show nav when logged in
     if (!auth) return null;
-    if (!user)  {
-        const { from } = history.location.state || { from: { pathname: '/' } };
-                    history.navigate(from);
-    }
+    // if (!user)  {
+    //     const { from } = history.location.state || { from: { pathname: '/' } };
+    //                 history.navigate(from);
+    // }
     
     return (
         // <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
