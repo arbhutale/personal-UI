@@ -73,9 +73,9 @@ function Nav() {
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
-                        </li>
+                        </li> */}
                     </ul>
                     {/* <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> */}
                     {/* <form class="d-flex"> */}
