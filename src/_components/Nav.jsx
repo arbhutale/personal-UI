@@ -1,12 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { authActions, userActions } from '../_store';
 
 export { Nav };
 
 function Nav() {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const [user, setUser] = useState({});
+    setTimeout(() => {
+        setUser(JSON.parse(localStorage.getItem('user')))
+      }, 1000);
+   
     const auth = useSelector(x => x.auth.value);
     const dispatch = useDispatch();
     const logout = () => dispatch(authActions.logout());
