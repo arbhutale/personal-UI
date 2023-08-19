@@ -120,6 +120,7 @@ function createExtraReducers() {
                     state.item = { loading: true };
                 })
                 .addCase(fulfilled, (state, action) => {
+                    localStorage.setItem('user', JSON.stringify(action.payload));
                     state.item = { value: action.payload };
                 })
                 .addCase(rejected, (state, action) => {

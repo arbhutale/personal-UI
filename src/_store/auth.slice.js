@@ -76,6 +76,7 @@ function createExtraActions() {
             function (arg, { dispatch }) {
                 dispatch(authActions.setAuth(null));
                 localStorage.removeItem('auth');
+                localStorage.removeItem('user');
                 history.navigate('/account/login');
             }
         );
