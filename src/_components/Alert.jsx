@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-
+import createDOMPurify from 'dompurify'
 import { alertActions } from '../_store';
+const DOMPurify = createDOMPurify(window)
 
 export { Alert };
 
@@ -22,7 +23,7 @@ function Alert() {
         <div className="container">
             <div className="m-3">
                 <div className={`alert alert-dismissible ${alert.type}`}>
-                    {alert.message}
+                { <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(alert.message) }} /> }
                     <button type="button" className="btn-close" onClick={() => dispatch(alertActions.clear())}></button>
                 </div>
             </div>

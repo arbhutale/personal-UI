@@ -21,24 +21,27 @@ function Nav() {
     return (
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container">
-                <a class="navbar-brand" href="#">AR BHUTALE</a>
+                <a class="navbar-brand" href="#">ARB Finance</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <NavLink to="/" className="nav-item nav-link"> Home
+                            <NavLink to="/" className="nav-item nav-link"> Dashboard
                                 <span class="visually-hidden">(current)</span>
                             </NavLink>
                         </li>
                         <li class="nav-item">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
+                            <a class="nav-link" href="#">Loans</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="#">Accounts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Assests</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-md-auto">

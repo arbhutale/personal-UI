@@ -1,3 +1,4 @@
+import { object } from 'yup';
 import { store, authActions } from '../_store';
 
 export const fetchWrapper = {
@@ -53,7 +54,17 @@ async function handleResponse(response) {
 
         // get error message from body or default to response status
         const error = (data && data.message) || response.status;
-        return Promise.reject(error);
+        if(data.detail){
+            return Promise.reject(data.detail);
+            
+        }
+        let str = '';  
+        for (let i in data) {
+        if (data.hasOwnProperty(i)) {
+            str = str + `<div> ${data[i]}</div>\n`;
+        }
+        }
+        return Promise.reject(str)
     }
 
     return data;
