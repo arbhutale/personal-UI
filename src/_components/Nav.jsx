@@ -9,7 +9,7 @@ function Nav() {
     const [user, setUser] = useState({});
     setTimeout(() => {
         setUser(JSON.parse(localStorage.getItem('user')))
-      }, 500);
+      }, 1000);
    
     const auth = useSelector(x => x.auth.value);
     const dispatch = useDispatch();
