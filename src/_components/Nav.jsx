@@ -9,8 +9,8 @@ function Nav() {
     const [user, setUser] = useState({});
     setTimeout(() => {
         setUser(JSON.parse(localStorage.getItem('user')))
-      }, 1000);
-   
+    }, 1000);
+
     const auth = useSelector(x => x.auth.value);
     const dispatch = useDispatch();
     const logout = () => dispatch(authActions.logout());
@@ -19,16 +19,8 @@ function Nav() {
     if (!auth) return null
 
     return (
-        // <nav className="navbar navbar-expand navbar-dark bg-dark px-3">
-        //     <div className="navbar-nav">
-        //         <NavLink to="/" className="nav-item nav-link">Home</NavLink>
-        //         <NavLink to="/users" className="nav-item nav-link">Users</NavLink>
-        //         <button onClick={logout} className="btn btn-link nav-item nav-link">Logout</button>
-        //     </div>
-        // </nav>
-
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" href="#">AR BHUTALE</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -41,9 +33,6 @@ function Nav() {
                             </NavLink>
                         </li>
                         <li class="nav-item">
-                            {/* <NavLink to="/users" className="nav-item nav-link"> Users
-            <span class="visually-hidden"></span>
-        </NavLink> */}
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Pricing</a>
@@ -51,52 +40,40 @@ function Nav() {
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
-                        {/* <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li> */}
                     </ul>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{user?.username}</a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
+                    <ul class="navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a target="_blank" rel="noopener" class="nav-link" href="https://github.com/thomaspark/bootswatch/"><i class="bi bi-github"></i><span class="d-lg-none ms-2">GitHub</span></a>
                         </li>
-                        {/* <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li> */}
+                        <li class="nav-item">
+                            <a target="_blank" rel="noopener" class="nav-link" href="https://twitter.com/bootswatch"><i class="bi bi-twitter"></i><span class="d-lg-none ms-2">Twitter</span></a>
+                        </li>
+                        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                            <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+                            <hr class="d-lg-none my-2 text-white-50" />
+                        </li>
+                        <li class="nav-item dropdown" data-bs-theme="light">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center show" href="#" id="theme-menu" aria-expanded="true" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme">
+                                <i class="bi bi-person-circle"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end show" data-bs-popper="static">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                        <i class="bi bi-person-fill"></i><span class="ms-2">{user?.username}</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={logout} type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                                        <i class="bi bi-box-arrow-in-left"></i><span class="ms-2">Logout</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                    {/* <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> */}
-                    {/* <form class="d-flex"> */}
-                    {/* <input class="form-control me-sm-2" type="search" placeholder="Search"/>
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> */}
-                    {/* <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{user?.username}</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li> */}
-
-                    <button onClick={logout} className="btn btn-link nav-item nav-link">Logout</button>
-                    {/* </form> */}
+                    <span className="btn btn-link nav-item nav-link">{user?.username}</span>
                 </div>
             </div>
-            {/* {user} */}
         </nav>
 
     );

@@ -14,15 +14,20 @@ function Register() {
 
     // form validation rules 
     const validationSchema = Yup.object().shape({
-        firstName: Yup.string()
+        first_name: Yup.string()
             .required('First Name is required'),
-        lastName: Yup.string()
+        last_name: Yup.string()
             .required('Last Name is required'),
         username: Yup.string()
             .required('Username is required'),
+        email: Yup.string()
+            .required('Username is required'),
         password: Yup.string()
             .required('Password is required')
-            .min(6, 'Password must be at least 6 characters')
+            .min(8, 'Password must be at least 8 characters'),
+        confirm_password: Yup.string()
+        .required('Password is required')
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -50,13 +55,13 @@ function Register() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-3">
                         <label className="form-label">First Name</label>
-                        <input name="firstName" type="text" {...register('firstName')} className={`form-control ${errors.firstName ? 'is-invalid' : ''}`} />
-                        <div className="invalid-feedback">{errors.firstName?.message}</div>
+                        <input name="first_name" type="text" {...register('first_name')} className={`form-control ${errors.first_name ? 'is-invalid' : ''}`} />
+                        <div className="invalid-feedback">{errors.first_name?.message}</div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Last Name</label>
-                        <input name="lastName" type="text" {...register('lastName')} className={`form-control ${errors.lastName ? 'is-invalid' : ''}`} />
-                        <div className="invalid-feedback">{errors.lastName?.message}</div>
+                        <input name="last_name" type="text" {...register('last_name')} className={`form-control ${errors.last_name ? 'is-invalid' : ''}`} />
+                        <div className="invalid-feedback">{errors.last_name?.message}</div>
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Username</label>
@@ -64,9 +69,19 @@ function Register() {
                         <div className="invalid-feedback">{errors.username?.message}</div>
                     </div>
                     <div className="mb-3">
+                        <label className="form-label">Email</label>
+                        <input name="email" type="text" {...register('email')} className={`form-control ${errors.email ? 'is-invalid' : ''}`} />
+                        <div className="invalid-feedback">{errors.email?.message}</div>
+                    </div>
+                    <div className="mb-3">
                         <label className="form-label">Password</label>
                         <input name="password" type="password" {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
                         <div className="invalid-feedback">{errors.password?.message}</div>
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Confirm Password</label>
+                        <input name="confirm_password" type="confirm_password" {...register('confirm_password')} className={`form-control ${errors.confirm_password ? 'is-invalid' : ''}`} />
+                        <div className="invalid-feedback">{errors.confirm_password?.message}</div>
                     </div>
                     <button disabled={isSubmitting} className="btn btn-primary">
                         {isSubmitting && <span className="spinner-border spinner-border-sm me-1"></span>}

@@ -17,8 +17,6 @@ function request(method) {
             requestOptions.headers['Content-Type'] = 'application/json';
             requestOptions.body = JSON.stringify(body);
         }
-        console.log(requestOptions)
-        console.log(fetch(url, requestOptions).then(handleResponse))
         return fetch(url, requestOptions).then(handleResponse);
     }
 }
@@ -38,8 +36,6 @@ function authHeader(url) {
 }
 
 function authToken() {
-    console.log('auth')
-    console.log(store.getState().auth.value?.access)
     return store.getState().auth.value?.access;
 }
 
